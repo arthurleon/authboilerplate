@@ -20,10 +20,7 @@ NÃO DEVE SER INSTALADO VIA GEMFILE!!!
 
 <b>Instalação</b>
 
-<tt>$ gem install mailcatcher
+<tt>$ gem install mailcatcher</tt>
+<tt>$ mailcatcher &</tt>
 
-$ mailcatcher &</tt>
-
-Para ver os emails acesse:
-
-http://localhost:1080/
+Para ver os emails acesse: http://localhost:1080/
