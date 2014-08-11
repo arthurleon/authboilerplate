@@ -37,6 +37,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Autenticacao
+gem 'devise', '3.2.4'
+gem 'omniauth', '~> 1.2.0'
+
+#Autorizacao
+gem 'cancancan', '~> 1.9'
+gem 'role_model'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'

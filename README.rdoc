@@ -8,6 +8,10 @@ Systema operacional:
 * Xubuntu 14.04
 
 Principais Gems
+[Devise 3.2.4]{https://github.com/plataformatec/devise}
+[Omniauth]{https://github.com/intridea/omniauth}
+[CanCanCan 1.9]{https://github.com/CanCanCommunity/cancancan}
+[RoleModel]{https://github.com/martinrehfeld/role_model}
 
 = Adicionais
 ==MailCatcher
