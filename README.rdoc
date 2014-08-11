@@ -12,7 +12,7 @@ Principais Gems
 = Adicionais
 ==MailCatcher
 
-Utilizando o MailCatcher no ambiente de desenvolvimento.
+Utilizamos o {MailCatcher}[https://github.com/sj26/mailcatcher] no ambiente de desenvolvimento para visualizar os emails enviados pelo sistema.
 
 Esta pequena gem é um servidor SMTP simples que captura os emails enviados para porta 1025 (smtp://localhost:1025).
 
@@ -21,6 +21,7 @@ NÃO DEVE SER INSTALADO VIA GEMFILE!!!
 <b>Instalação</b>
 
 <tt>$ gem install mailcatcher</tt>
+
 <tt>$ mailcatcher &</tt>
 
-Para ver os emails acesse: http://localhost:1080/
+Para ver os emails recebido acesse: http://localhost:1080/
