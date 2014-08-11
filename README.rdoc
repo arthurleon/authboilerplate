@@ -1,28 +1,29 @@
-== README
+= LEIAME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este boilerplate está sendo feito com:
+* ruby 2.1.2p95
+* ruby 4.1.1
 
-Things you may want to cover:
+Systema operacional:
+* Xubuntu 14.04
 
-* Ruby version
+Principais Gems
 
-* System dependencies
+= Adicionais
+==MailCatcher
 
-* Configuration
+Utilizando o MailCatcher no ambiente de desenvolvimento.
 
-* Database creation
+Esta pequena gem é um servidor SMTP simples que captura os emails enviados para porta 1025 (smtp://localhost:1025).
 
-* Database initialization
+NÃO DEVE SER INSTALADO VIA GEMFILE!!!
 
-* How to run the test suite
+<b>Instalação</b>
 
-* Services (job queues, cache servers, search engines, etc.)
+<tt>$ gem install mailcatcher
 
-* Deployment instructions
+$ mailcatcher &</tt>
 
-* ...
+Para ver os emails acesse:
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+http://localhost:1080/
