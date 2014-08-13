@@ -32,3 +32,22 @@ NÃO DEVE SER INSTALADO VIA GEMFILE!!!
 <tt>$ mailcatcher &</tt>
 
 Para ver os emails recebido acesse: http://localhost:1080/
+==Bootstrap
+Também incluímos o {Bootstrap-sass}[https://github.com/twbs/bootstrap-sass] e suas dependências para facilitar a criação das interfaces.
+
+==Internacionalização
+O rails vem por padrão com capacidade de internacionalização, utilizamos esta capacidade para trabalhar com locale = "pt-BR" por default e enconding = "utf8".
+
+Utilizamos {traduções das mensagem do Devise}[https://github.com/plataformatec/devise/wiki/I18n] e também traduzimos as views:
+
+*devise/session/new.html.erb
+*devise/shared/_links.erb
+
+colocando as traduções no arquivo <tt>config/locale/devise.views.pt-BR.yml</tt>.
+
+Também pegamos as traduções já feitas dos principais helper e modulos do Rails, que estão no arquivo <tt>config/locale/devise.views.pt-BR.yml</tt>.
+
+Para criar suas próprias traduções, inclua nos arquivos citados aqui, ou crie arquivos novos para cada escopo. 
+
+=Mais dúvidas?
+Veja a {Wiki}[https://github.com/arthurleon/authboilerplate/wiki]
