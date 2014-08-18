@@ -1,0 +1,49 @@
+  <div class="panel-group" id="leftMenu">
+    <!-- Home -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= link_to "Escola Fácil", root_path, :class => 'accordion-toggle', "data-parent"=> '#leftMenu' %>
+      </div>
+    </div><!-- FIM Home -->
+    
+    <!-- Alunos -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseTwo">
+          <i class="icon-th"></i> Alunos
+        </a>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul>
+            <li><%= link_to "Ver todos", root_path %></li>
+            <li><%= link_to "Matricular", root_path %></li>
+            <li>This is Three</li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- FIM Alunos -->
+    
+    <!-- Gerenciar -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseThree">
+          <i class="icon-th"></i> Gerenciar
+        </a>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul>
+            <li><%= link_to "Meu Perfil", edit_user_registration_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- FIM GRUPOS -->
+    
+    <!-- LOGOUT -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= link_to "Logout", destroy_user_session_path, :method => 'delete', "data-toggle"=> 'collapse', "data-parent" => '#leftMenu' %>
+      </div>
+    </div> <!-- FIM LOGOUT -->
+  </div>

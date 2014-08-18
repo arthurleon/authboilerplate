@@ -1,29 +1,45 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "clear-frm" }) do |f| %>
+  <h1><%= t("devise.views.titles.edit") %> <%= t("devise.views.resources.user")%> </h1>
+  
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  
+  <fieldset>
+    <legend><%= t("devise.views.titles.basic_data") %></legend>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    
+    <%= f.label t("models.user.name") %>
+    <%= f.text_field :name %>
+  </fieldset>
+  
+  <fieldset>
+    <legend><%= t("devise.views.titles.change_password") %></legend>
+    <%= f.label t("devise.views.labels.password") %> <i>(<%= t("devise.views.labels.leave_it_blank_for_no_change") %>)</i>
+    <%= f.password_field :password, autocomplete: "off" %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <%= f.label t("devise.views.labels.password_confirmation") %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </fieldset>
+  
+  <fieldset>
+    <legend><%= t("devise.views.titles.confirmation") %></legend>
+     <i><%= t("devise.views.labels.input_current_password_to_confirm_changes") %></i><br /><br />
+    <%= f.label t("devise.views.labels.current_password") %>
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </fieldset>
+  
+  <div><%= f.submit t("devise.views.submit.update"), class: "btn btn-lg btn-primary" %></div>
+  
+  <% if !current_user.has_role?(:admin) %>
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-primary" %></p>
+
+  <%= link_to "Back", :back %>
   <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Update" %></div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

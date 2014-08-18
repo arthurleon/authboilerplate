@@ -202,3 +202,6 @@ pt-BR:
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%d de %B, %H:%M'
     pm: ''
+  models:
+    user:
+      name: "Nome"

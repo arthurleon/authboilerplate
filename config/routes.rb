@@ -1,7 +1,22 @@
 Rails.application.routes.draw do
+  get 'pages/lowcredentials'
+
+  get 'pages/about'
+
+  get 'pages/dashboard'
+
   devise_for :users
   
-  root :to => redirect("/users/sign_in")
+  # Quando usuário não está autenticado, o root é a página de Sign In, quando está logado é o Dashboard
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'pages#dashboard'
+    end
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

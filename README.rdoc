@@ -32,16 +32,21 @@ NÃO DEVE SER INSTALADO VIA GEMFILE!!!
 <tt>$ mailcatcher &</tt>
 
 Para ver os emails recebido acesse: http://localhost:1080/
-==Bootstrap
+==Bootstrap e CSS
 Também incluímos o {Bootstrap-sass}[https://github.com/twbs/bootstrap-sass] e suas dependências para facilitar a criação das interfaces.
+
+Para ter forms mais bonitos que os default, incluímos o arquivo <tt>forms.css.scss</tt>. Esse arquivo tem a classe <tt>.clear-frm</tt> que aplicamos aos principais forms da aplicação.
+
+Incluímos também a classe <tt>.vertical-center</tt> em </tt>application.css.scss</tt>, para alinhar verticamente qualquer elemento dentro do <i>parent element</i>.
 
 ==Internacionalização
 O rails vem por padrão com capacidade de internacionalização, utilizamos esta capacidade para trabalhar com locale = "pt-BR" por default e enconding = "utf8".
 
 Utilizamos {traduções das mensagem do Devise}[https://github.com/plataformatec/devise/wiki/I18n] e também traduzimos as views:
 
-*devise/session/new.html.erb
-*devise/shared/_links.erb
+* devise/session/new.html.erb
+
+* devise/shared/_links.erb
 
 colocando as traduções no arquivo <tt>config/locale/devise.views.pt-BR.yml</tt>.
 

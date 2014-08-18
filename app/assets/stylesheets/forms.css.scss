@@ -17,7 +17,7 @@
 
 .clear-frm h1 {
     font: 35px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 10px;
     display: block;
     border-bottom: 1px solid #DADADA;
     margin: -10px -30px 30px -30px;
@@ -30,6 +30,10 @@
 
 .clear-frm fieldset {
     margin-top: 30px;
+}
+
+.clear-frm legend {
+    text-transform: uppercase;
 }
 
 .clear-frm label {
@@ -45,6 +49,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
+
 .clear-frm input[type="text"], .clear-frm input[type="email"], .clear-frm input[type="password"], .clear-frm textarea, .clear-frm select, .clear-frm input[type="date"]{
     border: 1px solid #CCC;
     color: #888;
@@ -54,7 +59,7 @@
     margin-top: 2px;
     outline: 0 none;
     padding: 6px 12px;
-    width: 80%;
+    width: 79%;
     display: block;
     border-radius: 4px;
     -webkit-border-radius: 4px;
