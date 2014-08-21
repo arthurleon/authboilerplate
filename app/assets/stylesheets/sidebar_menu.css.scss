@@ -1,16 +1,59 @@
+/*********************
+SOME TANGO COLORS - http://sobac.com/sobac/tangocolors.htm
+*********************/
+
+/* Aluminium */
+$aluminium-highlight: #eeeeec;
+$aluminium-normal: #d3d7cf;
+$aluminium-shadow: #babdb6;
+
+
+/* Slate */
+$slate-highlight: #888a85;
+$slate-normal: #555753;
+$slate-shadow: #2e3436;
+
+/*********************
+MENU
+*********************/
+
 #leftMenu .panel-group {
     margin-bottom: 0px;
     border:0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-}    
+}
+
+#leftMenu .panel-body {
+  background-color: $slate-highlight;
+  border: 0px;
+}
+
+#leftMenu ul {
+  margin-bottom: 0px;
+}
+
+#leftMenu ul>li {
+  list-style-type: none;
+}
+
+#leftMenu ul>li>a:link, #leftMenu ul>li>a:visited {
+  color: $aluminium-highlight;
+  text-decoration: none;
+}
+
+#leftMenu ul>li>a:hover, #leftMenu ul>li>a:active {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 #leftMenu .panel-heading {
     height: 34px;
     border-top: 1px solid #717171; /* inner stroke */
-    border-bottom: 1px solid #5A5A5A; /* inner stroke */
-    background-color: #353535; /* layer fill content */
+    /* border-bottom: 1px solid #5A5A5A;  inner stroke */
+    background-color: $slate-shadow; /* layer fill content */
     background-image: -moz-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
     background-image: -o-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
     background-image: -webkit-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
@@ -28,17 +71,18 @@
 }
 
 #leftMenu .panel-heading  a {  
-    color: #cbcbcb; /* text color */
+    color: $aluminium-normal; /* text color */
     text-shadow: 0 1px 0 #3b3b3b; /* drop shadow */
     text-decoration:none;
     font-weight:bold;  
 }
 
 #leftMenu .panel-heading  a:hover {  
-    color:#ccc;
+    color:$aluminium-highlight;
 }
 
 #leftMenu .panel-heading .active {
+    color:$aluminium-highlight;
     width: 182px;
     height: 34px;
     border: 1px solid #5b5b5b; /* inner stroke */

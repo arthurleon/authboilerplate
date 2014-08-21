@@ -1,2 +1,6 @@
-<h1>Pages#dashboard</h1>
-<p>Find me in app/views/pages/dashboard.html.erb</p>
+<h1>Olá <%= current_user.name || current_user.email %>!
+<% if current_user.role_symbols.count == 0 %>
+Você não tem nenhum perfil... :(
+<% else %>
+Você tem perfil de <%= current_user.role_symbols %>
+<% end %>

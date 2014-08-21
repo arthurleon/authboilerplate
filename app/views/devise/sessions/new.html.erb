@@ -1,6 +1,6 @@
   <div class="center-block vertical-center" style="width: 400px; text-align: center">
     
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "clear-frm"}) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "small-frm"}) do |f| %>
         <h1><%= Rails.application.class.parent %> App</h1>  
         <fieldset>
         <%= f.email_field :email, autofocus: true, placeholder: "seu@email.com.br", html: {width: "100%"} %>
@@ -11,7 +11,7 @@
         <%= f.label t("devise.views.login.remember_me") %><%= f.check_box :remember_me %>
       <% end -%>
       </fieldset><br />
-      <%= f.submit t("devise.views.login.sign_in"), class: "btn btn-lg btn-primary" %><br /><br />
+      <%= f.submit t("devise.views.login.sign_in"), class: "btn btn-lg btn-line btn-primary" %><br /><br />
       <%= render "devise/shared/links" %>
     <% end %>
   </div>

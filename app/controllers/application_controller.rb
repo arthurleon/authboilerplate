@@ -10,9 +10,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
+  # Tornar obrigatório que todos os controllers tenham uma verificação com excessão do Devise
+  check_authorization :unless => :devise_controller?
+  
   # Redireciona para ROOT se houver erro de acesso e mostra uma mensagem de erro
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to pages_lowcredentials_path, :alert => exception.message
   end
 
    protected

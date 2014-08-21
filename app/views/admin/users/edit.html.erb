@@ -1,0 +1,31 @@
+<%= form_for @user, :url => {:action => 'update'}, :method => :put, html: {class: "clear-frm"} do |f| %>
+<h1><%= t("helpers.submit.update", model: t("activerecord.models.user")) %></h1>  
+
+  <fieldset>
+    <legend><%= t("devise.views.titles.basic_data") %></legend>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, required: true %>
+    
+    <%= f.label t("models.user.name") %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <% if current_user.has_role?(:admin) %>
+  <fieldset>
+    <legend><%= t("devise.views.titles.roles") %></legend>
+    <% for role in User.valid_roles %>
+      <%= check_box_tag "user[roles][#{role}]", role, @user.has_role?(role), {:name => "user[roles][]"}%>
+      <%= label_tag "user_roles_#{role}", role.to_s.humanize %><br />
+    <% end %>
+    <%= hidden_field_tag "user[roles][]", "" %>
+  </fieldset>
+  <% end %>
+  <fieldset>
+    <legend><%= t("devise.views.titles.others") %></legend>
+    <%= f.label t("devise.views.labels.password") %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  
+    <%= f.label t("devise.views.labels.password_confirmation") %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </fieldset>
+  <%= f.submit t("helpers.submit.update", model: ""), class: "btn btn-lg btn-primary" %>
+<% end %>

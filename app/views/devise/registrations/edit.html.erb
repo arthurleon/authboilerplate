@@ -19,7 +19,8 @@
   
   <fieldset>
     <legend><%= t("devise.views.titles.change_password") %></legend>
-    <%= f.label t("devise.views.labels.password") %> <i>(<%= t("devise.views.labels.leave_it_blank_for_no_change") %>)</i>
+    <i>(<%= t("devise.views.labels.leave_it_blank_for_no_change") %>)</i><br /><br />
+    <%= f.label t("devise.views.labels.password") %>
     <%= f.password_field :password, autocomplete: "off" %>
 
     <%= f.label t("devise.views.labels.password_confirmation") %>
@@ -28,7 +29,7 @@
   
   <fieldset>
     <legend><%= t("devise.views.titles.confirmation") %></legend>
-     <i><%= t("devise.views.labels.input_current_password_to_confirm_changes") %></i><br /><br />
+    <i><%= t("devise.views.labels.input_current_password_to_confirm_changes") %></i><br /><br />
     <%= f.label t("devise.views.labels.current_password") %>
     <%= f.password_field :current_password, autocomplete: "off" %>
   </fieldset>
@@ -36,10 +37,10 @@
   <div><%= f.submit t("devise.views.submit.update"), class: "btn btn-lg btn-primary" %></div>
   
   <% if !current_user.has_role?(:admin) %>
-  <h3>Cancel my account</h3>
+  
+  <h2><%= t("devise.views.titles.cancel_account") %></h2>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-primary" %></p>
+  <p><%= t("devise.views.labels.i_m_unhappy") %> <%= button_to t("devise.views.titles.cancel_my_account"), registration_path(resource_name), data: { confirm: t("devise.views.labels.are_you_sure?") }, method: :delete, class: "btn btn-lg btn-primary" %></p>
 
-  <%= link_to "Back", :back %>
   <% end %>
 <% end %>

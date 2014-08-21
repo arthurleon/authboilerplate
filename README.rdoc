@@ -1,4 +1,18 @@
 = LEIAME
+==Sobre este boilerplate
+Este boilerplate tem como objetivo acelerar o desenvolvimento para quem precisa criar uma aplicação com autententicação e autorização de usuários mediante um email e senha.
+
+Além dessas funcionalidades, há também alguns itens adicionais, como CSS's e traduções que também aceleram um pouco o trabalho.
+
+Na primeira execução é criado somente um usuário Admin, que tem o poder de fazer tudo, inclusive criar outros usuários com outros perfis.
+
+Sugestões são bem vindas!
+
+===Admin
+email: admin@adminmail.com
+password: password
+
+Este usuário pode alterar o próprio perfil e administrar outros perfis.
 
 ===Ruby e Rails
 * ruby 2.1.2p95
@@ -37,7 +51,15 @@ Também incluímos o {Bootstrap-sass}[https://github.com/twbs/bootstrap-sass] e 
 
 Para ter forms mais bonitos que os default, incluímos o arquivo <tt>forms.css.scss</tt>. Esse arquivo tem a classe <tt>.clear-frm</tt> que aplicamos aos principais forms da aplicação.
 
-Incluímos também a classe <tt>.vertical-center</tt> em </tt>application.css.scss</tt>, para alinhar verticamente qualquer elemento dentro do <i>parent element</i>.
+Incluímos também a classe <tt>.vertical-center</tt> em <tt>application.css.scss</tt>, para alinhar verticamente qualquer elemento dentro do <i>parent element</i>.
+
+Temos também o menu lateral, onde são apresentadas as opções disponíveis para cada usuário. Para colocar mais opções respeitanto o perfil de cada usuário, recomendamos utilizar a seguinte estrutura:
+
+```
+<% if can? :read, User %>
+    <li><%= link_to "Usuários", admin_users_path %></li>
+<% end %>
+```
 
 ==Internacionalização
 O rails vem por padrão com capacidade de internacionalização, utilizamos esta capacidade para trabalhar com locale = "pt-BR" por default e enconding = "utf8".

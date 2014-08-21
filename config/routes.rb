@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/manage_users'
+
   get 'pages/lowcredentials'
 
   get 'pages/about'
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   get 'pages/dashboard'
 
   devise_for :users
-  
+
   # Quando usuário não está autenticado, o root é a página de Sign In, quando está logado é o Dashboard
   devise_scope :user do
     authenticated :user do
@@ -15,6 +17,10 @@ Rails.application.routes.draw do
     unauthenticated do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
+  end
+  
+  namespace :admin do
+    resources :users
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

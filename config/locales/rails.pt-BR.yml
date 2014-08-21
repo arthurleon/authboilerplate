@@ -202,6 +202,13 @@ pt-BR:
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%d de %B, %H:%M'
     pm: ''
+  activerecord:
+    models:
+      user: "Usuário"
   models:
     user:
       name: "Nome"
+  views:
+    links:
+        edit: "editar"
+        deactivate: "desativar"

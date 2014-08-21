@@ -2,27 +2,26 @@
     <!-- Home -->
     <div class="panel panel-default">
       <div class="panel-heading">
-        <%= link_to "Escola Fácil", root_path, :class => 'accordion-toggle', "data-parent"=> '#leftMenu' %>
+        <%= link_to "Auth Boilerplate", root_path, :class => 'accordion-toggle', "data-parent"=> '#leftMenu' %>
       </div>
     </div><!-- FIM Home -->
     
-    <!-- Alunos -->
+    <!-- Menu 1-->
     <div class="panel panel-default">
       <div class="panel-heading">
         <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseTwo">
-          <i class="icon-th"></i> Alunos
+          <i class="icon-th"></i> ToBeDone...
         </a>
       </div>
       <div id="collapseTwo" class="panel-collapse collapse">
         <div class="panel-body">
           <ul>
-            <li><%= link_to "Ver todos", root_path %></li>
-            <li><%= link_to "Matricular", root_path %></li>
-            <li>This is Three</li>
+            <li><%= link_to "Ação 1", root_path %></li>
+            <li><%= link_to "Ação 2", root_path %></li>
           </ul>
         </div>
       </div>
-    </div><!-- FIM Alunos -->
+    </div><!-- FIM Menu 1 -->
     
     <!-- Gerenciar -->
     <div class="panel panel-default">
@@ -35,6 +34,9 @@
         <div class="panel-body">
           <ul>
             <li><%= link_to "Meu Perfil", edit_user_registration_path %></li>
+            <% if can? :read, User %>
+              <li><%= link_to "Usuários", admin_users_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>

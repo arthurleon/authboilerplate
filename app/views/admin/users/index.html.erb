@@ -1,0 +1,19 @@
+<div class="col-sm-12 col-md-12 col-lg-12 list-container">
+  <%= link_to t("helpers.submit.create", model: t("activerecord.models.user")), new_admin_user_path, class: "btn btn-lg btn-line btn-primary" %>
+  <table class="table table-hover list-container">
+    <tr>
+      <th>Email</th>
+      <th><%= t("models.user.name") %></th>
+      <th><%= t("views.links.edit").capitalize %></th>
+      <th><%= t("views.links.deactivate").capitalize %></th>
+    </tr>  
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to t("views.links.edit").capitalize, edit_admin_user_path(user.id) %></td>
+        <td><%= link_to t("views.links.deactivate").capitalize, admin_user_path(user.id), data: { confirm: t("devise.views.labels.are_you_sure?") }, method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
