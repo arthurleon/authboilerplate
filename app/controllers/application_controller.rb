@@ -1,8 +1,5 @@
 class ApplicationController < ActionController::Base
-  
-  # Configurar paramentros dos Roles
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  
+    
   # Ações a serem executadas na primeira vez
   before_action :first_run
   
@@ -23,20 +20,6 @@ class ApplicationController < ActionController::Base
   #parametros do devise que podem ser alterando com a ação :account_update 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit({ roles: [] }, :email, :name, :password, :password_confirmation, :current_password) }
-  end
-
-  def first_run
-    # Se não houver usuários, criar um admin
-    if User.count == 0 then
-      newuser = User.new({
-        email: 'admin@adminmail.com',
-        password: 'password',
-        password_confirmation: 'password'
-      })
-      newuser.roles = [:admin]
-      newuser.confirm!
-      newuser.save
-    end
   end
   
 end

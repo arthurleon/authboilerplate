@@ -1,22 +1,12 @@
 namespace :app do
   desc "prepara o app para rodar no ambiente de desenvolvimento"
-  task setup: :environment do
+  task :setup do
     puts "Verificando o ambiente..."
-    Rake::Task['app:env'].invoke
-    if Rails.env.development?
-      puts "Tudo ok, continuando..."
-      Rake::Task['app:create_database_yml_file'].invoke
-      Rake::Task['app:install'].invoke
-    end
+    Rake::Task['app:create_database_yml_file'].invoke
+    Rake::Task['app:install'].invoke
   end
 
-  desc "mostra qual ambiente estamos trabalhando"
-
-  task env: :environment do
-    puts "O ambiente atual é #{Rails.env}"
-  end
-
-  task create_database_yml_file: :environment do
+  task :create_database_yml_file do
      if File.exists?("config/database.yml")
       puts "O arquivo config/database.yml já existe, não será criado um novo"
      else
@@ -25,21 +15,21 @@ namespace :app do
       
       f.puts("")
       f.puts("default: &default")
-      f.puts("adapter: sqlite3")
-      f.puts("pool: 5")
-      f.puts("timeout: 5000")
+      f.puts("  adapter: sqlite3")
+      f.puts("  pool: 5")
+      f.puts("  timeout: 5000")
       f.puts("")
       f.puts("development:")
-      f.puts("<<: *default")
-      f.puts("database: db/development.sqlite3")
+      f.puts("  <<: *default")
+      f.puts("  database: db/development.sqlite3")
       f.puts("")
       f.puts("test:")
-      f.puts("<<: *default")
-      f.puts("database: db/test.sqlite3")
+      f.puts("  <<: *default")
+      f.puts("  database: db/test.sqlite3")
       f.puts("")
       f.puts("production:")
-      f.puts("<<: *default")
-      f.puts("database: db/production.sqlite3")
+      f.puts("  <<: *default")
+      f.puts("  database: db/production.sqlite3")
       f.close
       
       puts "Arquivo criado com sucesso!"
@@ -49,7 +39,7 @@ namespace :app do
   task install: :environment do
     puts ""
     puts "Verificando se o banco de dados já existe..."
-    if User.nil?
+    if !ActiveRecord::Base.connection.table_exists? 'users'
       puts "Criando banco de dados..."
       Rake::Task['db:migrate'].invoke
       puts "Banco de dados criado com sucesso!"      
@@ -57,7 +47,7 @@ namespace :app do
       puts "Banco de dados presente, ignorando criação!"
     end
     puts "Verificando se banco de dados está vazio..."
-    if User.count.nil?
+    if User.count.zero?
       puts "Criando primeiro usuário..."
       Rake::Task['db:seed'].invoke
       puts "Usuário criado com sucesso!"      
