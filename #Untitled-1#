@@ -1,0 +1,16 @@
+Como criar uma rake task Rails 4
+
+rails g task namespace task1 task2
+
+Exemplo:
+rails g task app setup env
+
+Verificar se foi criado:
+rake -T | grep namespace
+
+Como mostra uma mensagem
+------------------------
+
+Usar o comando puts:
+
+puts "O ambiente atual é #{Rails.env}"

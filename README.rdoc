@@ -4,7 +4,16 @@ Este boilerplate tem como objetivo acelerar o desenvolvimento para quem precisa 
 
 Além dessas funcionalidades, há também alguns itens adicionais, como CSS's e traduções que também aceleram um pouco o trabalho.
 
-Na primeira execução é criado somente um usuário Admin, que tem o poder de fazer tudo, inclusive criar outros usuários com outros perfis.
+===Instalação
+Depois de clonar o repositório, acesse a pasta do aplicativo execute o comando:
+
+<tt>bundle install</tt>
+
+e em seguida:
+
+<tt>rake app:setup</tt>
+
+A princípio existe somente o usuário Admin, que tem o poder de fazer tudo, inclusive criar outros usuários com outros perfis.
 
 Sugestões são bem vindas!
 
@@ -55,11 +64,13 @@ Incluímos também a classe <tt>.vertical-center</tt> em <tt>application.css.scs
 
 Temos também o menu lateral, onde são apresentadas as opções disponíveis para cada usuário. Para colocar mais opções respeitanto o perfil de cada usuário, recomendamos utilizar a seguinte estrutura:
 
-```
+<tt>
 <% if can? :read, User %>
+
     <li><%= link_to "Usuários", admin_users_path %></li>
+    
 <% end %>
-```
+</tt>
 
 ==Internacionalização
 O rails vem por padrão com capacidade de internacionalização, utilizamos esta capacidade para trabalhar com locale = "pt-BR" por default e enconding = "utf8".
