@@ -1,7 +1,4 @@
 class ApplicationController < ActionController::Base
-    
-  # Ações a serem executadas na primeira vez
-  before_action :first_run
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
