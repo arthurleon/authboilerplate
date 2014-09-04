@@ -39,6 +39,11 @@ Este usuário pode alterar o próprio perfil e administrar outros perfis.
 
 {RoleModel}[https://github.com/martinrehfeld/role_model]
 
+===Dependências
+Este ambiente de desenvolvimento usa SQLite3, então certifique-se de que está instalado e, caso precise instalar, rode o comando:
+
+<tt>apt-get install libsqlite3-dev</tt>
+
 = Adicionais
 ==MailCatcher
 
@@ -68,7 +73,7 @@ Temos também o menu lateral, onde são apresentadas as opções disponíveis pa
 <% if can? :read, User %>
 
     <li><%= link_to "Usuários", admin_users_path %></li>
-    
+
 <% end %>
 </tt>
 
@@ -85,7 +90,7 @@ colocando as traduções no arquivo <tt>config/locale/devise.views.pt-BR.yml</tt
 
 Também pegamos as traduções já feitas dos principais helper e modulos do Rails, que estão no arquivo <tt>config/locale/devise.views.pt-BR.yml</tt>.
 
-Para criar suas próprias traduções, inclua nos arquivos citados aqui, ou crie arquivos novos para cada escopo. 
+Para criar suas próprias traduções, inclua nos arquivos citados aqui, ou crie arquivos novos para cada escopo.
 
 =Mais dúvidas?
 Veja a {Wiki}[https://github.com/arthurleon/authboilerplate/wiki]

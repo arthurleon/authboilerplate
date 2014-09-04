@@ -1,3 +1,4 @@
+#encoding: utf-8
 namespace :app do
   desc "prepara o app para rodar no ambiente de desenvolvimento"
   task :setup do
@@ -12,7 +13,7 @@ namespace :app do
      else
       puts "Criando arquivo config/database.yml..."
       f = File.new("config/database.yml", "w+")
-      
+
       f.puts("")
       f.puts("default: &default")
       f.puts("  adapter: sqlite3")
@@ -31,18 +32,18 @@ namespace :app do
       f.puts("  <<: *default")
       f.puts("  database: db/production.sqlite3")
       f.close
-      
+
       puts "Arquivo criado com sucesso!"
      end
   end
-  
+
   task install: :environment do
     puts ""
     puts "Verificando se o banco de dados já existe..."
     if !ActiveRecord::Base.connection.table_exists? 'users'
       puts "Criando banco de dados..."
       Rake::Task['db:migrate'].invoke
-      puts "Banco de dados criado com sucesso!"      
+      puts "Banco de dados criado com sucesso!"
     else
       puts "Banco de dados presente, ignorando criação!"
     end
@@ -50,7 +51,7 @@ namespace :app do
     if User.count.zero?
       puts "Criando primeiro usuário..."
       Rake::Task['db:seed'].invoke
-      puts "Usuário criado com sucesso!"      
+      puts "Usuário criado com sucesso!"
     else
       puts "Banco de dados já possui dados e está pronto para uso!"
     end
@@ -66,5 +67,5 @@ namespace :app do
       puts "Email: admin@adminmail.com"
       puts "Senha: password"
   end
-  
+
 end
